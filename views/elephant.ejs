@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>WildHacks</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+</head>
+<body>
+	<main>
+		<section class="py-5 text-center container">
+			<div class="row py-lg-5">
+				<div class="col-lg-6 col-md-8 mx-auto">
+					<h1 class="fw-light">Elephants</h1>
+					<p class="lead">In past 20 Years not a single Elephant in India has died naturaly.</p>
+				</div>
+			</div>
+		</section>
+	</main>
+	<div class="album py-5 bg-light">
+		<div class="container">
+			<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+				<% for(var i=0; i < 47; i++) { %>
+				<% if(data[i].image !== 'https://elephant-api.herokuapp.com/pictures/missing.jpg'){ %>
+				<div class="col">	
+					<div class="card shadow-sm">
+						<img src="<%= data[i].image %>">
+						<div class="card-body d-flex-column">
+							<div class="card-title d-flex justify-content-between align-items-center">
+								<h5><%= data[i].name %></h5>
+								<small class="card-text text-muted"><%= data[i].dob %> - <%= data[i].dod %></small>
+							</div>
+							<div class="card-title d-flex justify-content-between align-items-center">
+								<small class="card-text"><%= data[i].species %></small>
+								<small class="card-text"><%= data[i].sex %></small>
+							</div>
+							<p class="card-text"><%= data[i].note %></p>	
+						</div>	
+					</div>
+				</div>
+				<% } %>
+				<% } %>
+			</div>
+		</div>
+		<script src="/docs/5.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+	</body>
+	</html>
